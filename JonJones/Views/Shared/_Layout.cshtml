@@ -2,33 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - JonJones</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/JonJones.styles.css" asp-append-version="true" />
-</head>
-<body class="bg-dark text-light">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
 
+        .navbar-custom {
+            background: linear-gradient(90deg, #2b0000, #7f0000);
+            box-shadow: 0 4px 10px rgba(255, 0, 70, 0.3);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #ff0047 !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link:hover {
+                color: #ff3366 !important;
+            }
+
+        .footer {
+            background-color: #1a1a1a;
+            color: #888;
+            padding: 1rem 0;
+        }
+
+        a {
+            color: #ff0047;
+        }
+
+            a:hover {
+                color: #ff3366;
+            }
+    </style>
+</head>
+<body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom mb-4">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom mb-4">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">JonJones</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JonJones</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Biography">Biography</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Biography">Biography</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
@@ -42,9 +77,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted py-3 mt-4">
-        <div class="container text-center">
-            &copy; 2025 - JonJones - <a class="text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer text-center border-top mt-5">
+        <div class="container">
+            &copy; 2025 - JonJones - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
@@ -52,6 +87,5 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-
 </body>
 </html>

@@ -4,14 +4,53 @@
     ViewData["Title"] = "Biography";
 }
 
-<div class="text-center">
-    <h1 class="display-4">@Model.Name - Biography</h1>
-    <p style="max-width: 700px; margin: auto;">@Model.Biography</p>
+<style>
+    body {
+        background-color: #121212;
+        color: #f1f1f1;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    <h2>Stats</h2>
-    <ul class="list-unstyled">
-        <li>🏆 Record: @Model.Record</li>
-        <li>📏 Reach: @Model.Reach</li>
-        <li>🥋 Style: @Model.Style</li>
-    </ul>
+    .bio-section {
+        background: linear-gradient(145deg, #1c1c1c, #181818);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 0 20px rgba(255, 0, 70, 0.2);
+        border: 1px solid #ff0047;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .bio-section:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 70, 0.5);
+        }
+
+    h1, h2 {
+        color: #ff0047;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: #ccc;
+    }
+</style>
+
+<div class="container py-5">
+    <h1 class="text-center mb-5">Biography of @Model.Name</h1>
+
+    <div class="bio-section">
+        <h2>Early Life</h2>
+        <p>@Model.Biography</p>
+    </div>
+
+    <div class="bio-section">
+        <h2>Career</h2>
+        <p>Jon Jones became the youngest UFC champion and never looked back. Known for his unorthodox style, lethal elbows, and cage IQ, he’s considered the greatest of all time by many in the sport.</p>
+    </div>
+
+    <div class="bio-section">
+        <h2>Legacy</h2>
+        <p>Jon Bones Jones redefined dominance in MMA. With unmatched reach, explosive power, and tactical genius, he left a legacy that future generations will chase but likely never match.</p>
+    </div>
 </div>

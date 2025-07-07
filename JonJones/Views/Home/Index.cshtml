@@ -1,21 +1,95 @@
 ﻿@model JonJones.Models.Sportsman
 
-<div class="text-center">
-    <h1>@Model.Name</h1>
-    <p>Jon Jones is considered the most dominant fighter in MMA history.</p>
+@{
+    ViewData["Title"] = "Jon Jones - Home";
+}
 
-    <h2>💪 Stats</h2>
-    <ul style="list-style: none;">
-        <li>🏆 Record: @Model.Record</li>
-        <li>📏 Reach: @Model.Reach</li>
-        <li>🥋 Style: @Model.Style</li>
-    </ul>
+<style>
+    body {
+        background-color: #121212;
+        color: #f1f1f1;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    <h3>💬 Motivation Quote</h3>
-    <button class="btn btn-danger" onclick="showQuote()">Click Me</button>
-    <p id="quoteArea" style="margin-top: 15px; font-style: italic;"></p>
+    .hero-image {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+        margin-bottom: 2rem;
+    }
 
-    <a href="/Home/Biography" class="btn btn-primary mt-3">Biography</a>
+    .stats-card {
+        background: linear-gradient(145deg, #1c1c1c, #181818);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 0 20px rgba(255, 0, 70, 0.2);
+        border: 1px solid #ff0047;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .stats-card:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 70, 0.6);
+        }
+
+    .btn-modern {
+        background: #ff0047;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 0.75rem 2rem;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+    }
+
+        .btn-modern:hover {
+            background: #e6003c;
+        }
+
+    #quoteArea {
+        margin-top: 15px;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: #ccc;
+    }
+
+    h1, h2, h3 {
+        color: #ff0047;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        color: #ccc;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="text-center">
+        <img src="/images/JonBonesJones.jpg" alt="Jon Bones Jones" class="hero-image" />
+
+        <h1 class="display-4 fw-bold mt-4">@Model.Name</h1>
+        <p class="lead mb-4">The most dominant, ruthless, and strategic killer in MMA history.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 stats-card text-center">
+            <h2 class="mb-4">💪 Stats</h2>
+            <ul class="list-unstyled fs-5">
+                <li>🏆 <strong>Record:</strong> @Model.Record</li>
+                <li>📏 <strong>Reach:</strong> @Model.Reach</li>
+                <li>🥋 <strong>Style:</strong> @Model.Style</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <h3 class="mb-3">💬 Motivation Quote</h3>
+        <button class="btn btn-modern" onclick="showQuote()">Click Me</button>
+        <p id="quoteArea"></p>
+    </div>
 </div>
 
 @section Scripts {
@@ -25,10 +99,13 @@
                 "Hard work beats talent when talent doesn't work hard.",
                 "Be the best version of yourself.",
                 "Bones never breaks.",
-                "I’m not the best because I talk the best — I am the best because I fight the best."
+                "I’m not the best because I talk the best — I am the best because I fight the best.",
+                "The struggles don't define you. It's how you handle them that determines who you are.",
+                "My friends and family all know me, and that's the important thing.",
+                "The higher the risk, the higher the reward."
             ];
             const random = quotes[Math.floor(Math.random() * quotes.length)];
             document.getElementById("quoteArea").innerText = random;
         }
     </script>
-}
+    }
