@@ -1,0 +1,34 @@
+﻿@model JonJones.Models.Sportsman
+
+<div class="text-center">
+    <h1>@Model.Name</h1>
+    <p>Jon Jones is considered the most dominant fighter in MMA history.</p>
+
+    <h2>💪 Stats</h2>
+    <ul style="list-style: none;">
+        <li>🏆 Record: @Model.Record</li>
+        <li>📏 Reach: @Model.Reach</li>
+        <li>🥋 Style: @Model.Style</li>
+    </ul>
+
+    <h3>💬 Motivation Quote</h3>
+    <button class="btn btn-danger" onclick="showQuote()">Click Me</button>
+    <p id="quoteArea" style="margin-top: 15px; font-style: italic;"></p>
+
+    <a href="/Home/Biography" class="btn btn-primary mt-3">Biography</a>
+</div>
+
+@section Scripts {
+    <script>
+        function showQuote() {
+            const quotes = [
+                "Hard work beats talent when talent doesn't work hard.",
+                "Be the best version of yourself.",
+                "Bones never breaks.",
+                "I’m not the best because I talk the best — I am the best because I fight the best."
+            ];
+            const random = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quoteArea").innerText = random;
+        }
+    </script>
+}
