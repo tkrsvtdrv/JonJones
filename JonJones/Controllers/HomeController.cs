@@ -8,9 +8,9 @@ namespace JonJones.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly Sportsman _jonJones = new Sportsman
         {
-            Name = "Jon Jones",
-            Record = "26-1-0",
-            Reach = "84.5 in",
+            Name = "Jon ''Bones'' Jones",
+            Record = "28-1-0",
+            Reach = "84.5 in (215 cm)",
             Style = "Wrestling / BJJ / Striking",
             Biography = "Jonathan Dwight Jones is an American mixed martial artist widely regarded as one of the greatest fighters in MMA history. Born on July 19, 1987, Jones began his professional MMA career in 2008 and quickly rose to prominence due to his unique fighting style, athleticism, and fight IQ. He has held the UFC Light Heavyweight Championship multiple times and is known for his dominant performances and numerous title defenses."
         };
