@@ -11,6 +11,7 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+   
     .hero-image {
         width: 100%;
         max-height: 500px;
@@ -21,28 +22,26 @@
     }
 
     .stats-card {
-        background: linear-gradient(145deg, #1c1c1c, #181818);
+        background: linear-gradient(145deg,#1c1c1c,#181818);
         border-radius: 20px;
         padding: 2rem;
-        box-shadow: 0 0 20px rgba(255, 0, 70, 0.2);
         border: 1px solid #ff0047;
-        margin-bottom: 2rem;
-        transition: all 0.3s ease-in-out;
+        box-shadow: 0 0 20px rgba(255,0,70,.2);
+        transition: box-shadow .3s;
     }
 
         .stats-card:hover {
-            box-shadow: 0 0 25px rgba(255, 0, 70, 0.6);
+            box-shadow: 0 0 25px rgba(255,0,70,.6);
         }
+
 
     .btn-modern {
         background: #ff0047;
-        color: white;
         border: none;
         border-radius: 30px;
-        padding: 0.75rem 2rem;
+        padding: .75rem 2rem;
         font-weight: bold;
-        font-size: 1rem;
-        transition: background 0.3s ease;
+        transition: background .3s;
     }
 
         .btn-modern:hover {
@@ -61,19 +60,58 @@
     }
 
     .lead {
-        font-size: 1.25rem;
         color: #ccc;
+        font-size: 1.25rem;
     }
+
+    
+    .calc-wrap {
+        background: #1d1d1d;
+        border: 1px solid #ff0047;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 0 20px rgba(255,0,70,.25);
+        margin-top: 3rem;
+    }
+
+    #inp {
+        width: 100%;
+        font-size: 1.5rem;
+        padding: .5rem 1rem;
+        border-radius: 12px;
+        border: 1px solid #ff0047;
+        background: #181818;
+        color: #f1f1f1;
+        margin-bottom: 1rem;
+    }
+
+    .calc-btn {
+        width: 60px;
+        height: 60px;
+        margin: .25rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        border-radius: 12px;
+        border: none;
+        background: #2b2b2b;
+        color: #fff;
+    }
+
+        .calc-btn:hover {
+            background: #444;
+        }
 </style>
 
 <div class="container py-5">
+
+
     <div class="text-center">
         <img src="/images/JonBonesJones.jpg" alt="Jon Bones Jones" class="hero-image" />
-
         <h1 class="display-4 fw-bold mt-4">@Model.Name</h1>
         <p class="lead mb-4">The most dominant, ruthless, and strategic killer in MMA history.</p>
     </div>
 
+  
     <div class="row justify-content-center">
         <div class="col-md-8 stats-card text-center">
             <h2 class="mb-4">💪 Stats</h2>
@@ -85,15 +123,47 @@
         </div>
     </div>
 
+  
     <div class="text-center mt-4">
         <h3 class="mb-3">💬 Motivation Quote</h3>
         <button class="btn btn-modern" onclick="showQuote()">Click Me</button>
         <p id="quoteArea"></p>
     </div>
+
+
+    <div class="calc-wrap text-center">
+        <h3 class="mb-3">🧮 Calculator</h3>
+        <input type="text" id="inp" placeholder="enter expression…" readonly />
+
+
+        <div>
+            @for (int i = 1; i <= 9; i++)
+            {
+                <button class="calc-btn" onclick="addVal('@i')">@i</button>
+                if (i % 3 == 0)
+                {
+
+                    <br />
+                }
+            }
+            <button class="calc-btn" onclick="addVal('0')">0</button>
+        </div>
+
+     
+        <div class="mt-2">
+            <button class="calc-btn" onclick="addVal('+')">+</button>
+            <button class="calc-btn" onclick="addVal('-')">−</button>
+            <button class="calc-btn" onclick="addVal('*')">&times;</button>
+            <button class="calc-btn" onclick="addVal('/')">÷</button>
+        </div>
+
+        <button class="btn btn-modern mt-3" onclick="exe()">Calculate</button>
+    </div>
 </div>
 
 @section Scripts {
     <script>
+     
         function showQuote() {
             const quotes = [
                 "Hard work beats talent when talent doesn't work hard.",
@@ -104,8 +174,16 @@
                 "My friends and family all know me, and that's the important thing.",
                 "The higher the risk, the higher the reward."
             ];
-            const random = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById("quoteArea").innerText = random;
+            document.getElementById("quoteArea").innerText =
+                quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+      
+        const val = document.getElementById("inp");
+        function addVal(v) { val.value += v; }
+        function exe() {
+            try { val.value = eval(val.value || "0"); }
+            catch { val.value = "Error"; }
         }
     </script>
-    }
+}
