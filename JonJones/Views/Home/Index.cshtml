@@ -11,7 +11,7 @@
         font-family: 'Segoe UI',Tahoma,Verdana,sans-serif;
     }
 
-    /* calendar */
+
     .calendar {
         display: inline-block;
         background: #1d1d1d;
@@ -58,7 +58,7 @@
             font-weight: 600;
         }
 
-    /* gallery */
+
     .gallery-wrap {
         position: relative;
         margin-bottom: 2rem;
@@ -100,7 +100,7 @@
             right: 10px;
         }
 
-    /* stats / quote / calculator */
+ 
     .stats-card {
         background: linear-gradient(145deg,#1c1c1c,#181818);
         border: 1px solid #ff0047;
@@ -175,26 +175,25 @@
 
 <div class="container py-5">
 
-    <!-- calendar -->
     <div class="calendar">
         <div id="calHeader" class="cal-header"></div>
         <div id="calGrid" class="cal-grid"></div>
     </div>
 
-    <!-- gallery -->
+   
     <div class="gallery-wrap">
         <button class="gallery-btn prev" onclick="prevPic()">‹</button>
         <img id="galleryImg" src="~/images/JonBonesJones.jpg" class="gallery-img" alt="Jon Jones gallery" />
         <button class="gallery-btn next" onclick="nextPic()">›</button>
     </div>
 
-    <!-- hero title -->
+ 
     <div class="text-center">
         <h1 class="display-4 fw-bold">@Model.Name</h1>
         <p class="lead mb-4">The most dominant, ruthless, and strategic killer in MMA history.</p>
     </div>
 
-    <!-- stats -->
+   
     <div class="row justify-content-center">
         <div class="col-md-8 stats-card text-center mb-4">
             <h2>💪 Stats</h2>
@@ -206,14 +205,14 @@
         </div>
     </div>
 
-    <!-- quote -->
+   
     <div class="text-center">
         <h3 class="mb-3">💬 Motivation Quote</h3>
         <button class="btn btn-modern" onclick="showQuote()">Click Me</button>
         <p id="quoteArea" class="fs-5"></p>
     </div>
 
-    <!-- calculator -->
+ 
     <div class="calc-wrap text-center">
         <h3 class="mb-3">🧮 Calculator</h3>
         <input id="inp" type="text" placeholder="enter expression…" readonly />
@@ -241,7 +240,7 @@
 
 @section Scripts {
     <script>
-        /* calendar */
+     
         document.addEventListener("DOMContentLoaded", () => {
             const now = new Date(), y = now.getFullYear(), m = now.getMonth(), today = now.getDate();
             const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -256,7 +255,7 @@
             }
         });
 
-        /* quotes */
+      
         const quotes = [
             "Hard work beats talent when talent doesn't work hard.",
             "Be the best version of yourself.",
@@ -270,12 +269,12 @@
             document.getElementById("quoteArea").innerText = quotes[Math.floor(Math.random()*quotes.length)];
         }
 
-        /* calculator */
+     
         const val = document.getElementById("inp"); 
         function addVal(v){ val.value += v; }
         function exe(){ try{ val.value = eval(val.value||"0"); } catch{ val.value = "Error"; } }
 
-        /* image gallery */
+      
         const pics = [
             "/images/JonBonesJones.jpg",
             "/images/jj2.jpg",
